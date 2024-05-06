@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { fetchImageData } from "./utils";
 
 const ImageSlide: React.FC = () => {
-  //Stores the fetched news data (if available) or null initially.
+  //Stores the fetched image data (if available) or null initially.
   const [imageURL, setImageURL] = useState<string | null>(null);
   //hardcoded url just to test the design
   const placeholderImageURL = "https://picsum.photos/200";
