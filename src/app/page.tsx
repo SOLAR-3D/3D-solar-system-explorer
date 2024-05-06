@@ -1,19 +1,27 @@
 "use client";
 
 import { Box } from "@chakra-ui/react";
-//importing the generic carousel component and the children components inside it
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import Carousel from "./Carousel";
 import FetchNews from "./FetchNews";
 import ImageSlide from "./ImageSlide";
-// we show the children components inside the carousel component
+
 const HomePage: React.FC = () => {
   return (
-    <Box>
-      <Carousel>
-        <FetchNews />
-        <ImageSlide />
-      </Carousel>
-    </Box>
+    <Provider store={store}>
+      {" "}
+      {/* Here I am passing my components to the redux store */}
+      <Box>
+        <Carousel>
+          {/* inside the carousel we can pass any component. Here I am passing 
+                the fetch news and images */}
+
+          <FetchNews />
+          <ImageSlide />
+        </Carousel>
+      </Box>
+    </Provider>
   );
 };
 
