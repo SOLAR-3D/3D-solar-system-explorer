@@ -24,7 +24,7 @@ export const fetchNewsData = async (): Promise<NewsData | null> => {
 
 export const fetchImageData = async (): Promise<string | null> => {
   try {
-    const response = await fetch("https://example.com/api/image"); // endpoint to fetch images
+    const response = await fetch("https://picsum.photos/200/300"); // endpoint to fetch images
     const data = await response.json();
     return data.imageUrl; // Assuming the API returns an object with a property 'imageUrl' containing the image URL
   } catch (error) {

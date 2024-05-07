@@ -2,7 +2,7 @@ import { Box, ChakraProvider, Heading, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { fetchNewsData, NewsData } from "./utils";
 
-const FetchNews = () => {
+const NewsComponent = () => {
   //Stores the fetched news data (if available) or null initially.
   const [content, setContent] = useState<NewsData | null>(null);
   //Tracks whether the data is still being fetched or if it has finished loading
@@ -38,4 +38,4 @@ const FetchNews = () => {
   );
 };
 
-export default FetchNews;
+export default NewsComponent;
