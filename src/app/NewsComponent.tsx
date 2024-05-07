@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { NewsContent } from "./utils/types";
-
+//imported from types.ts
 interface NewsProps {
   content: NewsContent;
 }

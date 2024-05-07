@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import { Box, Flex, Button } from "@chakra-ui/react";
 import NewsComponent from "./NewsComponent";
 import ImageComponent from "./ImageComponent";
-import { mockNewsData } from "./mockData";
-import { mockImageData } from "./mockData";
+import { mockNewsData, mockImageData } from "./mockData";
 
 interface CarouselProps {
   contentType: "news" | "image";
