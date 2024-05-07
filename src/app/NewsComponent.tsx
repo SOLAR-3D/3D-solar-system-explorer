@@ -1,12 +1,9 @@
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
+import { NewsContent } from "./utils/types";
 
 interface NewsProps {
-  content: {
-    h1: string;
-    h2: string;
-    p: string;
-  };
+  content: NewsContent;
 }
 
 const NewsComponent: React.FC<NewsProps> = ({ content }) => {

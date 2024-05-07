@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, ChakraProvider, Image } from "@chakra-ui/react";
+import { ImageContent } from "./utils/types";
 
 interface ImageProps {
-  content: string;
+  content: ImageContent;
 }
 
 const ImageComponent: React.FC<ImageProps> = ({ content }) => {
@@ -10,7 +11,7 @@ const ImageComponent: React.FC<ImageProps> = ({ content }) => {
     <ChakraProvider>
       <Box width="400px" height="300px" overflow="hidden">
         <Image
-          src={content}
+          src={content.imageUrl}
           alt="Carousel Image"
           width="100%"
           height="100%"
