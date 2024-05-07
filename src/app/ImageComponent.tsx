@@ -3,6 +3,7 @@ import { Box, Image } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { ImageContent } from "./utils/types";
 import { addImage } from "./redux/actions";
+
 //imported from types.ts
 interface ImageProps {
   content: ImageContent;

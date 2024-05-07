@@ -1,11 +1,5 @@
-## What is it?
+## To do
 
-What you need to know is that it's a carousel. This carousel can have different slides inside. These slides fetch images or news from external APIs. I am using random mock APIs for now and that's fine. Styling is not important. Chakra UI just setup for now.
-
-## Redux
-
-Done
-
-## Tests
-
-To do
+1. Tests
+2. Is redux preventing the images from rendering/appearing on the page? Because I can only see alt-text
+3. Redux for news component

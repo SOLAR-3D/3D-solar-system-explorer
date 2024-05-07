@@ -29,9 +29,9 @@ p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget quam du
 
 
 export const mockImageData = [
-  "https://picsum.photos/200",
-  "https://picsum.photos/200",
-  "https://picsum.photos/200",
+  "https://wallpaperaccess.com/full/90977.jpg",
+  "https://wallpaperaccess.com/full/90977.jpg",
+  "https://wallpaperaccess.com/full/90977.jpg",
   "https://wallpaperaccess.com/full/90977.jpg",
   "https://picsum.photos/200",
   "https://picsum.photos/200",
