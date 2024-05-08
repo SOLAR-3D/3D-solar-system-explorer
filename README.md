@@ -2,4 +2,3 @@
 
 1. Tests
 2. Is redux preventing the images from rendering/appearing on the page? Because I can only see alt-text
-3. Redux for news component
