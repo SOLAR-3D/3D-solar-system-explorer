@@ -9,7 +9,7 @@ import { mockNewsData, mockImageData } from "./mockData";
 interface CarouselProps {
   contentType: "news" | "image";
 }
-
+//functional component takes a prop contentType indicating whether it's displaying news or images.
 const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
   const [content, setContent] = useState<any[]>(() => {
     if (contentType === "news") {
@@ -21,7 +21,7 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
     }
   });
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  //navigation functions
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => Math.max(0, prevIndex - 1));
   };
@@ -32,7 +32,7 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
       Math.min(content.length - slidesToShow, prevIndex + slidesToShow)
     );
   };
-
+  //displays the content based on the currentIndex, showing a subset of content at a time. It maps over the sliced content array and renders either NewsComponent or ImageComponent based on the contentType.
   return (
     <Flex direction="column" alignItems="center">
       <Box p="4" width="100%" overflow="hidden">
