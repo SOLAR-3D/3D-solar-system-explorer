@@ -29,9 +29,9 @@ p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget quam du
 
 
 export const mockImageData = [
-  "https://wallpaperaccess.com/full/90977.jpg",
-  "https://wallpaperaccess.com/full/90977.jpg",
-  "https://wallpaperaccess.com/full/90977.jpg",
+  "https://th.bing.com/th/id/OIP.z4ZLCETriQgaV2bxzrZP4AHaE5?rs=1&pid=ImgDetMain",
+  "https://th.bing.com/th/id/OIP.z4ZLCETriQgaV2bxzrZP4AHaE5?rs=1&pid=ImgDetMain",
+  "https://th.bing.com/th/id/OIP.z4ZLCETriQgaV2bxzrZP4AHaE5?rs=1&pid=ImgDetMain",
   "https://wallpaperaccess.com/full/90977.jpg",
   "https://picsum.photos/200",
   "https://picsum.photos/200",

@@ -1,4 +1,3 @@
-// reducers.ts
 import { combineReducers } from "redux";
 import { ImageContent, NewsContent } from "../utils/types";
 
