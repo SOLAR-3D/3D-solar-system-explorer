@@ -7,3 +7,8 @@ export interface NewsContent {
 export interface ImageContent {
   imageUrl: string;
 }
+
+export interface RootState {
+  images: ImageContent[];
+  news: NewsContent[];
+}

@@ -1,16 +1,27 @@
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addNews } from "./redux/actions";
 import { NewsContent } from "./utils/types";
+
+// Define a selector function to extract news from the Redux store
+const selectNews = (state: { news: any }) => state.news;
 
 interface NewsProps {
   content: NewsContent;
 }
 
 const NewsComponent: React.FC<NewsProps> = ({ content }) => {
-  const dispatch = useDispatch(); // Initialize dispatch
-  const addNewsToStore = (news: NewsContent) => dispatch(addNews(news)); // Create a function to dispatch addNews action
+  const dispatch = useDispatch();
+  const news = useSelector(selectNews);
+
+  console.log("News content:", content); // Log the content prop
+  console.log("News from Redux store:", news); // Log the news from the Redux store
+
+  const addNewsToStore = (news: NewsContent) => {
+    console.log("Adding news to store:", news); // Log the news being added to the store
+    dispatch(addNews(news));
+  };
 
   return (
     <Box>
@@ -21,8 +32,7 @@ const NewsComponent: React.FC<NewsProps> = ({ content }) => {
         {content.h2}
       </Heading>
       <Text>{content.p}</Text>
-      <button onClick={() => addNewsToStore(content)}>Add to News</button>{" "}
-      {/* Example button to add news to store */}
+      <button onClick={() => addNewsToStore(content)}>Add to News</button>
     </Box>
   );
 };
