@@ -12,6 +12,7 @@ import {
 import store from "@app/store";
 import NewsComponent from "./carouselNews";
 import ImageComponent from "./carouselImage";
+import { ImageContent, NewsContent } from "@app/utils/types";
 
 interface CarouselProps {
   contentType: "news" | "image";
@@ -22,7 +23,7 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
   const news = useSelector(selectNews); // Access news from Redux store
   const dispatch = useDispatch(); // Get dispatch function
 
-  const content = contentType === "news" ? news : images; // Determine content based on contentType
+  const content: any = contentType === "news" ? news : images;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -40,11 +41,11 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
           <Flex>
             {content
               .slice(currentIndex, currentIndex + 3)
-              .map((item, index) => (
+              .map((item: NewsContent | ImageContent, index: number) => (
                 <Card key={index} flex="1 0 33.33%" mx="1" p="4">
                   {contentType === "news" && <NewsComponent content={item} />}
                   {contentType === "image" && (
-                    <ImageComponent content={{ imageUrl: item }} />
+                    <ImageComponent content={{ imageUrl: item.imageUrl }} />
                   )}
                 </Card>
               ))}
