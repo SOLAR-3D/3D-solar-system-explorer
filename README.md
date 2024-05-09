@@ -1,3 +1,7 @@
+# 3D-solar-system-explorer
+
+Teach kids and grown ups about the solar system in a more immersive way
+
 ## Carousel.tsx
 
 1. Functional component (React.FC<CarouselProps>) receiving props of type CarouselProps.
