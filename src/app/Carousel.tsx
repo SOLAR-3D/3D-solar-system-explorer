@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Box, Flex, Button } from "@chakra-ui/react";
+import { Box, Flex, Button, Card } from "@chakra-ui/react";
 import NewsComponent from "./NewsComponent";
 import ImageComponent from "./ImageComponent";
 import { mockNewsData, mockImageData } from "./mockData";
@@ -25,13 +25,14 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   //navigation functions
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => Math.max(0, prevIndex - 1));
+    setCurrentIndex(
+      (prevIndex) => Math.max(0, prevIndex - 3) // Subtract 3 to go to the previous set of content
+    );
   };
 
   const goToNext = () => {
-    const slidesToShow = contentType === "news" ? 3 : 1;
-    setCurrentIndex((prevIndex) =>
-      Math.min(content.length - slidesToShow, prevIndex + slidesToShow)
+    setCurrentIndex(
+      (prevIndex) => Math.min(content.length - 3, prevIndex + 3) // Add 3 to go to the next set of content
     );
   };
   //displays the content based on the currentIndex, showing a subset of content at a time. It maps over the sliced content array and renders either NewsComponent or ImageComponent based on the contentType.
@@ -47,12 +48,12 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
               .map((item, index) => {
                 console.log("--item", item);
                 return (
-                  <Box key={index} flex="1 0 33.33%" mx="1">
+                  <Card key={index} flex="1 0 33.33%" mx="1" p="4">
                     {contentType === "news" && <NewsComponent content={item} />}
                     {contentType === "image" && (
                       <ImageComponent content={{ imageUrl: item }} />
                     )}
-                  </Box>
+                  </Card>
                 );
               })}
           </Flex>
