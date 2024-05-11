@@ -5,6 +5,7 @@ import newsReducer from "./newsSlice";
 import solarSystemReducer from "./solarSystemSlice";
 import overlayReducer from "./overlaySlice";
 import contentReducer from "./carouselSlice"; //Costanza imported her slice
+import fullNewsReducer from "./fullNewsSlice";
 
 const rootReducer = combineReducers({});
 
@@ -16,6 +17,7 @@ export const store = configureStore({
     solarSystem: solarSystemReducer,
     overlay: overlayReducer, // Add the overlay slice to the store
     content: contentReducer, //Costanza added her reducer
+    fullNews: fullNewsReducer, // Included the fullNewsSlice reducer
   },
 });
 
