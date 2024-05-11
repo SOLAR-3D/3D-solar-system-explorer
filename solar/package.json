@@ -14,6 +14,7 @@
     "@clerk/nextjs": "^5.0.6",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@next/env": "^14.2.3",
     "@react-three/drei": "^9.105.6",
     "@react-three/fiber": "^8.16.3",
     "@react-three/postprocessing": "^2.16.2",

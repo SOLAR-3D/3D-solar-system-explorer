@@ -1,6 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials"
-import  connectDB  from "../../../lib/db";
+import  dbConnect  from "../../../lib/db";
 import User from "@/app/lib/models/user.model";
 import bcrypt from "bcrypt";
 
@@ -71,7 +71,7 @@ export const nextauthOptions: NextAuthOptions = {
 }
 
  async function getUserByEmail(email : string, password : string) {
-  connectDB();
+  dbConnect();
   const user = await User.findOne({ email });
   console.log("user: ", user);
   if (!user) {
