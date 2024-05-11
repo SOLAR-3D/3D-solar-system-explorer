@@ -11,6 +11,7 @@ export interface ImageContent {
 }
 
 export interface RootState {
+  fullNews: any;
   carouselSlice: any;
   images: ImageContent[];
   news: NewsContent[];

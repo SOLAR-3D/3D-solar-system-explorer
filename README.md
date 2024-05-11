@@ -41,3 +41,13 @@ Teach kids and grown ups about the solar system in a more immersive way
 1. Style better with Chakra UI
 
 2. Merge with other people's code
+
+## Test advice
+
+1. Test a specific feature
+
+## Other advice
+
+1. The best practice for Chakra styling depends on the overall styling every component has
+2. The info in the readme should be in a pull request
+3. Solve conflicts as you go

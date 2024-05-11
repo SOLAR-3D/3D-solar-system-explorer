@@ -1,11 +1,16 @@
+//struggling with imports
+
 import React from "react";
 import { Box, Image, Button } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux"; // Import useSelector and useDispatch
-import { addImage } from "@app/store/carouselSlice"; // Import addImage action from slice
-import { ImageContent } from "@app/utils/types";
+// Import addImage action from slice import { addImage } from "@app/store/carouselSlice"; import { ImageContent } from "@app/utils/types";
 
-// Define a selector function to extract images from the Redux store
-const selectImages = (state: RootState) => state.carouselSlice.images; //how to resolve root state?
+import { ImageContent } from "../app/utils/types";
+import { addImage } from "../app/store/carouselSlice";
+
+const selectImages = (state: { images: any }) => state.images;
+
+const images = useSelector(selectImages);
 
 interface ImageProps {
   content: ImageContent;
