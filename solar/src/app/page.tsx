@@ -1,10 +1,11 @@
-'use client'
+"use client";
 
-import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
-import { ChakraProvider } from '@chakra-ui/react';
-import App from './app';
+import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { ChakraProvider } from "@chakra-ui/react";
+import App from "./app";
+import thunk from "redux-thunk";
 
 export default function Home() {
   return (
@@ -13,5 +14,5 @@ export default function Home() {
         <App />
       </ChakraProvider>
     </Provider>
-  )
+  );
 }
