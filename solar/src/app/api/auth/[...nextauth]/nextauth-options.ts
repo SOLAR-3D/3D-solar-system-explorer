@@ -1,14 +1,17 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials"
-import  dbConnect  from "../../../lib/db";
-import User from "@/app/lib/models/user.model";
+import  dbConnect  from "../../../../../lib/db";
+import User from "../../../../../lib/models/user.model";
 import bcrypt from "bcrypt";
 
 export const nextauthOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/signin", // app/signin
+    signIn: "/", // app/signin
     error: "/error", // app/error
+  },
+  session: {
+    strategy: "jwt",
   },
   providers: [
     CredentialsProvider({
@@ -18,17 +21,23 @@ export const nextauthOptions: NextAuthOptions = {
         password: { label: "Password", type: "password", required: true }
       },
       async authorize(credentials) {
-         console.log(credentials)
         if (!credentials?.email || !credentials?.password) {
           return null
         }
-        console.log("email: ", credentials?.email);
         const email = credentials?.email;
         const password = credentials?.password;
         return getUserByEmail(email, password);  
       }
     })
   ],
+  callbacks: {
+    jwt: async ({ user, token, trigger, session }) => {
+      if (trigger === "update") {
+        return { ...token, ...session.user };
+      }
+      return { ...token, ...user };
+    },
+  },
   // callbacks: {
   //   async signIn({ account, profile }) {
   //     // console.log({account, profile})
@@ -71,18 +80,20 @@ export const nextauthOptions: NextAuthOptions = {
 }
 
  async function getUserByEmail(email : string, password : string) {
-  dbConnect();
+  await dbConnect();
   const user = await User.findOne({ email });
   console.log("user: ", user);
   if (!user) {
-    return null;
+    // return null;
+    throw new Error('User not found');
   }
   // write regular expression th sanitize email
   const sanitizedPassword = password.replace(/[$/(){}]/g, '');
   const passwordsMatch = await bcrypt.compare(sanitizedPassword, user.password);
   if (!passwordsMatch) {
     console.log("Passwords do not match");
-    return null;
+    //return null;
+    throw new Error('Passwords do not match');
   }
   return user;
 }

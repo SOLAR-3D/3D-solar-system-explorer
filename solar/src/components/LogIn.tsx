@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react';
 import { HStack, VStack } from '@chakra-ui/react'
 import { signIn } from 'next-auth/react';
@@ -33,8 +35,9 @@ export default function LogIn() {
       email: logInForm.email,
       password: logInForm.password,
      // callbackUrl: '/',
+     redirect: false,
     });
-    console.log("user: ",{ result });
+    console.log("user data : ", result );
     if (result && !result.error) {
       // Redirect to the home page
      // window.location.href = "/";
@@ -42,6 +45,7 @@ export default function LogIn() {
       router.push('/user');
     }else{
       // show that the user does not exist or wrong credentials
+      console.log("error ",{ result });
     }
   };
 
