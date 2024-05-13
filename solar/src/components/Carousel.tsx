@@ -1,26 +1,18 @@
-import React, { useState } from "react";
-import { Box, Flex, Button, Card } from "@chakra-ui/react"; // study relative paths
+import React, { useState, useEffect } from "react";
+import { Box, Flex, Button, Card } from "@chakra-ui/react";
 import NewsComponent from "./carouselNews";
 import ImageComponent from "./carouselImage";
-import { mockNewsData, mockImageData } from "./carouselMockData";
+import { fetchImageUrls } from "@/app/api/images/imagesApi"; // Import the fetchImageUrls function
 import { NewsContent } from "@/app/utils/types"; // Import types for NewsContent and ImageContent
+import { mockNewsData } from "./carouselMockData"; // Import mockNewsData
 
 interface CarouselProps {
   contentType: "news" | "image";
 }
 
 const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
-  const [content, setContent] = useState(() => {
-    // TODO RESOLVE TYPE!!!
-    if (contentType === "news") {
-      return mockNewsData;
-    } else if (contentType === "image") {
-      return mockImageData;
-    } else {
-      return [];
-    }
-  });
-
+  const [imageData, setImageData] = useState<string[]>([]); // State for image data
+  const [newsData] = useState(mockNewsData); // State for news data
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -28,38 +20,55 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => Math.min(content.length - 3, prevIndex + 3));
+    setCurrentIndex((prevIndex) =>
+      Math.min(
+        contentType === "news" ? newsData.length : imageData.length - 3,
+        prevIndex + 3
+      )
+    );
   };
+
+  useEffect(() => {
+    if (contentType === "image") {
+      fetchImageUrls()
+        .then((data) => {
+          setImageData(data);
+        })
+        .catch((error) => console.error("Error fetching image data:", error));
+    }
+  }, [contentType]);
 
   return (
     <Flex direction="column" alignItems="center">
       <Box p="4" width="100%" overflow="hidden">
         <Flex>
-          {content.slice(currentIndex, currentIndex + 3).map((item, index) => (
-            <Card key={index} flex="1 0 33.33%" mx="1" p="4">
-              {/* Type guard to check the type of item */}
-              {contentType === "news" && (
-                <NewsComponent content={item as NewsContent} />
-              )}
-              {contentType === "image" && (
-                <ImageComponent content={{ imageUrl: item as string }} />
-              )}
-            </Card>
-          ))}
+          {(contentType === "news" ? newsData : imageData)
+            .slice(currentIndex, currentIndex + 3)
+            .map((item: any, index: number) => (
+              <Card key={index} flex="1 0 33.33%" mx="1" p="4">
+                {contentType === "news" ? (
+                  <NewsComponent content={item as NewsContent} />
+                ) : (
+                  <ImageComponent content={{ imageUrl: item as string }} />
+                )}
+              </Card>
+            ))}
         </Flex>
       </Box>
-      <Flex justifyContent="center" mt={4}>
-        <Button onClick={goToPrevious} disabled={currentIndex === 0}>
-          Previous
-        </Button>
-        <Button
-          onClick={goToNext}
-          ml={4}
-          disabled={currentIndex >= content.length - 3}
-        >
-          Next
-        </Button>
-      </Flex>
+      {contentType === "image" && (
+        <Flex justifyContent="center" mt={4}>
+          <Button onClick={goToPrevious} disabled={currentIndex === 0}>
+            Previous
+          </Button>
+          <Button
+            onClick={goToNext}
+            ml={4}
+            disabled={currentIndex >= imageData.length - 3}
+          >
+            Next
+          </Button>
+        </Flex>
+      )}
     </Flex>
   );
 };
