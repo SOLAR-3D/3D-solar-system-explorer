@@ -18,8 +18,8 @@ const ImageComponent: React.FC<ImageProps> = ({ content }) => {
   const dispatch = useDispatch();
   const images = useSelector(selectImages);
 
-  console.log("Image content:", content);
-  console.log("Images from Redux store:", images);
+  // console.log("Image content:", content);
+  // console.log("Images from Redux store:", images);
 
   const addImageToStore = (image: ImageContent) => {
     console.log("Adding image to store:", image);
@@ -27,7 +27,7 @@ const ImageComponent: React.FC<ImageProps> = ({ content }) => {
   };
 
   return (
-    <Box width="400px" height="300px" overflow="hidden">
+    <Box width="250px" height="250px" overflow="hidden">
       <Image
         src={content.imageUrl}
         alt="Carousel Image"
