@@ -27,7 +27,7 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
       )
     );
   };
-  //fetching the images from the unsplash API and distributing them in the carousel frames (see imageApi.ts file)
+  //fetching the images from the unsplash API and distributing them in the carousel frames (see imageApi.ts )
   useEffect(() => {
     if (contentType === "image") {
       fetchImageUrls()

@@ -74,19 +74,7 @@ const Navbar: React.FC = () => {
             </Link>
           </li>
         </ul>
-        <Box mr={20}>
-          <IconButton
-            aria-label="Toggle dark mode"
-            icon={
-              colorMode === "dark" ? <Icon as={FiSun} /> : <Icon as={FiMoon} />
-            }
-            onClick={toggleColorMode}
-            color="white"
-            variant="ghost"
-            size="sm"
-          />
-        </Box>
-        <Icon as={FiUser} color="white" boxSize={20} />
+        <Box mr={20}></Box>
       </Flex>
     </nav>
   );
