@@ -5,7 +5,7 @@ import ImageComponent from "./carouselImage";
 import { fetchImageUrls } from "@/app/api/images/imagesApi"; // Import the fetchImageUrls function
 import { NewsContent } from "@/app/utils/types"; // Import types for NewsContent and ImageContent
 import { mockNewsData } from "./carouselMockData"; // Import mockNewsData
-
+//type that takes news or images
 interface CarouselProps {
   contentType: "news" | "image";
 }
@@ -14,7 +14,7 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
   const [imageData, setImageData] = useState<string[]>([]); // State for image data
   const [newsData] = useState(mockNewsData); // State for news data
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  //buttons to navigate between the first and second page of the carousel. Each has 3 items
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => Math.max(0, prevIndex - 3));
   };
@@ -27,7 +27,7 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
       )
     );
   };
-
+  //fetching the images from the unsplash API and distributing them in the carousel frames (see imageApi.ts file)
   useEffect(() => {
     if (contentType === "image") {
       fetchImageUrls()

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
-
+//base url + search query of planets
 export const fetchImageUrls = async (): Promise<string[]> => {
   try {
     const response = await axios.get(`https://api.unsplash.com/search/photos`, {
