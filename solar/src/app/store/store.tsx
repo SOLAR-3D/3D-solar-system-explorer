@@ -1,23 +1,19 @@
-import { combineReducers, applyMiddleware } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-// import thunk from 'redux-thunk';
-import newsReducer from "./newsSlice";
+import newsReducer from "./newsApiSlice";
 import solarSystemReducer from "./solarSystemSlice";
 import overlayReducer from "./overlaySlice";
-import contentReducer from "./contentSlice";
-import carouselReducer from "./carouselSlice";
-
-const rootReducer = combineReducers({});
-
-// const middleware = [thunk];
+import contentReducer from "./carouselSlice"; //Costanza imported her slice
+import fullNewsReducer from "./fullNewsSlice";
+import dialogReducer from "./contentSlice";
 
 export const store = configureStore({
   reducer: {
-    content: contentReducer,
+    dialog: dialogReducer,
     news: newsReducer,
     solarSystem: solarSystemReducer,
     overlay: overlayReducer, // Add the overlay slice to the store
-    carousel: carouselReducer,
+    content: contentReducer, //Costanza added her reducer
+    fullNews: fullNewsReducer, // Included the fullNewsSlice reducer
   },
 });
 

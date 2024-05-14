@@ -13,6 +13,7 @@ import {
   useColorMode,
   ChakraProvider,
 } from "@chakra-ui/react";
+import { FiUser, FiSun, FiMoon } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
   const dispatch = useDispatch();
@@ -74,7 +75,19 @@ const Navbar: React.FC = () => {
             </Link>
           </li>
         </ul>
-        <Box mr={20}></Box>
+        <Box mr={20}>
+          <IconButton
+            aria-label="Toggle dark mode"
+            icon={
+              colorMode === "dark" ? <Icon as={FiSun} /> : <Icon as={FiMoon} />
+            }
+            onClick={toggleColorMode}
+            color="white"
+            variant="ghost"
+            size="sm"
+          />
+        </Box>
+        <Icon as={FiUser} color="white" boxSize={20} />
       </Flex>
     </nav>
   );

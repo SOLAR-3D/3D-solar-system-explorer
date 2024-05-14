@@ -2,19 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Box, Flex, Button, Card } from "@chakra-ui/react";
 import NewsComponent from "./carouselNews";
 import ImageComponent from "./carouselImage";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchImageUrls } from "@/app/api/images/imagesApi"; // Import the fetchImageUrls function
+import { addApiNews, fetchData, NewsApiItem } from "../app/store/newsApiSlice";
+import { RootState } from "../app/store/store";
 import { NewsContent } from "@/app/utils/types"; // Import types for NewsContent and ImageContent
-import { mockNewsData } from "./carouselMockData"; // Import mockNewsData
-//type that takes news or images
+
 interface CarouselProps {
   contentType: "news" | "image";
 }
 
 const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
-  const [imageData, setImageData] = useState<string[]>([]); // State for image data
-  const [newsData] = useState(mockNewsData); // State for news data
+  const dispatch = useDispatch();
+
+  const newsData = useSelector((state: RootState) => state.news.news);
+  const [imageData, setImageData] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  //buttons to navigate between the first and second page of the carousel. Each has 3 items
+
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => Math.max(0, prevIndex - 3));
   };
@@ -27,7 +31,7 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
       )
     );
   };
-  //fetching the images from the unsplash API and distributing them in the carousel frames (see imageApi.ts )
+
   useEffect(() => {
     if (contentType === "image") {
       fetchImageUrls()
@@ -37,6 +41,17 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
         .catch((error) => console.error("Error fetching image data:", error));
     }
   }, [contentType]);
+
+  useEffect(() => {
+    if (contentType === "news") {
+      const getData = async () => {
+        const apiNews = await fetchData();
+        dispatch(addApiNews(apiNews));
+      };
+
+      getData();
+    }
+  }, [contentType, dispatch]);
 
   return (
     <Flex direction="column" alignItems="center">
@@ -55,20 +70,21 @@ const CarouselComponent: React.FC<CarouselProps> = ({ contentType }) => {
             ))}
         </Flex>
       </Box>
-      {contentType === "image" && (
-        <Flex justifyContent="center" mt={4}>
-          <Button onClick={goToPrevious} disabled={currentIndex === 0}>
-            Previous
-          </Button>
-          <Button
-            onClick={goToNext}
-            ml={4}
-            disabled={currentIndex >= imageData.length - 3}
-          >
-            Next
-          </Button>
-        </Flex>
-      )}
+      <Flex justifyContent="center" mt={4}>
+        <Button onClick={goToPrevious} disabled={currentIndex === 0}>
+          Previous
+        </Button>
+        <Button
+          onClick={goToNext}
+          ml={4}
+          disabled={
+            currentIndex >=
+            (contentType === "news" ? newsData.length : imageData.length) - 3
+          }
+        >
+          Next
+        </Button>
+      </Flex>
     </Flex>
   );
 };
