@@ -1,10 +1,10 @@
 //added by Costanza. Feel free to add your own types too. This makes sense in this project but not in a bigger one, where you would have types in the component FOLDER itself.
 
 export interface NewsContent {
-  id: number,
-  title: string,
-  url: string,
-  summary: string
+  id: number;
+  title: string;
+  url: string;
+  summary: string;
 }
 
 export interface ImageContent {
@@ -17,10 +17,16 @@ export interface RootState {
   images: ImageContent[];
   news: NewsContent[];
 }
+
+export interface ModalImageProps {
+  imageUrl: string;
+  isOpen: boolean;
+  onClose: () => void;
+}
 export interface IUser {
-  firstName: string
-  lastName: string
-  email: string
-  password: string
-  _id: string
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  _id: string;
 }
