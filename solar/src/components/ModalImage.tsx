@@ -8,7 +8,7 @@ import {
   ModalCloseButton,
   Image,
 } from "@chakra-ui/react";
-import { ModalImageProps } from "@/app/utils/types"; //importing modal type
+import { ModalImageProps } from "../app/utils/types"; //importing modal type
 
 const ModalImage: React.FC<ModalImageProps> = ({
   imageUrl,
