@@ -22,3 +22,9 @@ export interface IUser {
   password: string;
   _id: string;
 }
+
+export interface ModalImageProps {
+  imageUrl: string;
+  isOpen: boolean;
+  onClose: () => void;
+}
