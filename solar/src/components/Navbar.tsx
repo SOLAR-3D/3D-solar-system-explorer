@@ -2,9 +2,10 @@ import React , {useState} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 import { hideLandingOverlay, showLandingOverlay, showsLogInOverlay } from '../app/store/overlaySlice';
 import { Link, Flex, IconButton, Icon, Box, useColorMode, ChakraProvider } from '@chakra-ui/react';
-import { FiUser, FiSun, FiMoon } from 'react-icons/fi';
+import { FiUser, FiSun, FiMoon, FiLogOut } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import  { useSession } from 'next-auth/react';
+import { signOut } from "next-auth/react";
 
 const Navbar: React.FC =  () => {
     const router = useRouter();
@@ -30,6 +31,17 @@ const Navbar: React.FC =  () => {
             router.push('/user');
         }
     }
+    const handleLogout = async () => {
+        const response = await signOut({ redirect: false, callbackUrl: '/' });
+        if (!response) {
+          console.error('Sign out error:', response);
+        } else {
+          console.log('session after signout : ',session)
+          console.log('Signed out successfully');
+          router.push('/');
+        }
+    };
+
     const handleToggleColorMode = () => {
         console.log('Current color mode:', colorMode);
         toggleColorMode();
@@ -68,7 +80,10 @@ const Navbar: React.FC =  () => {
                     />
                 </Box>
                 <Box onClick={handleProfileClick} cursor="pointer">
-                 <Icon as={FiUser} color="white" boxSize={20} />
+                 <Icon as={FiUser} color="white" boxSize={20} marginRight={20} />
+                </Box>
+                <Box onClick={handleLogout} cursor="pointer">
+                    <Icon as={FiLogOut} color="white" boxSize={20} marginRight={20}/>
                 </Box>
             </Flex>
         </nav>
