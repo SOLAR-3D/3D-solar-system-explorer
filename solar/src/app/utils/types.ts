@@ -22,7 +22,6 @@ export interface IUser {
   email: string
   password: string
   _id: string
-  imageUrl: string;
 }
 
 export interface IArticle  {
