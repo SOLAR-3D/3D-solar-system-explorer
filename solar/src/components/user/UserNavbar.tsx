@@ -8,18 +8,9 @@ import  { useSession } from 'next-auth/react';
 import {hideLogInOverlay } from '../../app/store/overlaySlice';
 import { useDispatch } from 'react-redux';
 import { GiEarthAmerica } from 'react-icons/gi';
-import { signOut } from "next-auth/react";
-import { useRouter } from 'next/navigation';
-import  { useSession } from 'next-auth/react';
-import {hideLogInOverlay } from '../../app/store/overlaySlice';
-import { useDispatch } from 'react-redux';
 
 const UserNavbar: React.FC = () => {
     const [theme, setTheme] = useState('light');
-    const { data: session } = useSession();
-    const router = useRouter();
-    const dispatch = useDispatch();
-
     const { data: session } = useSession();
     const router = useRouter();
     const dispatch = useDispatch();
