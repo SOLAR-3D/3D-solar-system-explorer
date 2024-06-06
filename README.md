@@ -1,5 +1,9 @@
 # 3D-solar-system-explorer
 
+<p align="center">
+  <img src="solar/public/readme_images/Logo.svg" alt="Logo Solar" width="300">
+</p>
+
 S O L A R is at the forefront of bringing the cosmos closer to you. Our platform offers an immersive, interactive, and educational 3D Solar System explorer designed to engage students, hobbyists, and space enthusiasts alike. With a blend of scientific information and user-generated content, S O L A R makes learning about celestial bodies both fun and accessible.
 
 [Explore SOLAR!](https://solar3d.vercel.app/)
