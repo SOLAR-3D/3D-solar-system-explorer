@@ -10,35 +10,47 @@ S O L A R is at the forefront of bringing the cosmos closer to you. Our platform
 
 ## Features:
 
-* 3D Exploration: 
-    Navigate a visually simplified 3D model of the solar system using three.js. Clickable planets provide detailed facts, images, and articles sourced from the Wikipedia API.
-* User Profiles: 
-    Create and maintain personal profiles to collect favorite images, articles, and personal notes about your astronomical discoveries.
-* Community Interaction: 
-    Share your space photography, notes, and observations with others. Engage in discussions through a comprehensive comment section.
-* Educational Tools: 
-    Test your knowledge with our interactive quiz feature, earning rewards and badges for your achievements.
-* Note-taking: 
-    Perfect for hobby astronomers and students, our note-taking feature helps you document your observations and learning journey.
-* Dynamic Content: 
-    Stay updated with a timeline of space exploration history and upcoming astronomical events.
-* Customisation: 
-    Enjoy a mobile-friendly interface, dark mode, and various predefined views of the solar system.
-* Continuous Improvement: 
-    We leverage cutting-edge technology, including Next.js, Redux Toolkit, Chakra UI, MongoDB, and Cloudinary, ensuring a seamless and engaging user experience.
+&#9733; 3D Exploration:
+
+Navigate a visually simplified 3D model of the solar system using three.js. Clickable planets provide detailed facts, images, and articles sourced from the Wikipedia API.
+
+&#9733; User Profiles: 
+    
+Create and maintain personal profiles to collect favorite images, articles, and personal notes about your astronomical discoveries.
+
+&#9733; Community Interaction: 
+
+Share your space photography, notes, and observations with others. Engage in discussions through a comprehensive comment section.
+
+&#9733; Educational Tools: 
+
+Test your knowledge with our interactive quiz feature, earning rewards and badges for your achievements.
+
+&#9733; Note-taking: 
+
+Perfect for hobby astronomers and students, our note-taking feature helps you document your observations and learning journey.
+
+&#9733; Dynamic Content: 
+    
+Stay updated with a timeline of space exploration history and upcoming astronomical events.
+
+&#9733; Customisation: 
+
+Enjoy a mobile-friendly interface, dark mode, and various predefined views of the solar system.
+
+&#9733; Continuous Improvement: 
+
+We leverage cutting-edge technology, including Next.js, Redux Toolkit, Chakra UI, MongoDB, and Cloudinary, ensuring a seamless and engaging user experience.
 
 ## Technologies Used
 
 * Backend:
-    * MongoDB
-    * Cloudinary
-    * Next-auth.js
+  
+![Static Badge](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white) ![Static Badge](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary) ![Static Badge](https://img.shields.io/badge/NextAuth.js-0070f3?style=for-the-badge)
+
 * Frontend:
-[![TypeScript][TypeScript]][TypeScript-url] [![Next.js][Next.js]][Next-url] [![React][React.js]][React-url]
-    * Next.js
-    * Three.js
-    * Redux Toolkit
-    * CSS & ChakraUI
+  
+[![TypeScript][TypeScript]][TypeScript-url] [![Next.js][Next.js]][Next-url] [![React][React.js]][React-url] ![Static Badge](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux) ![Static Badge](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js) ![Static Badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3) ![Static Badge](https://img.shields.io/badge/Chakra_UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
