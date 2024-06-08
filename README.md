@@ -34,7 +34,19 @@ S O L A R is at the forefront of bringing the cosmos closer to you. Our platform
     * Cloudinary
     * Next-auth.js
 * Frontend:
+[![TypeScript][TypeScript]][TypeScript-url] [![Next.js][Next.js]][Next-url] [![React][React.js]][React-url]
     * Next.js
     * Three.js
     * Redux Toolkit
     * CSS & ChakraUI
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[TypeScript-url]: https://www.typescriptlang.org/
+[TypeScript]: https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=for-the-badge
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
